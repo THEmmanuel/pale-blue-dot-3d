@@ -5,6 +5,10 @@ import {
 } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
+//Loading
+const textureLoader = new THREE.TextureLoader()
+const earthNormalTexture = textureLoader.load('textures/EarthNormalMap.png');
+
 // Debug
 const gui = new dat.GUI()
 
@@ -19,16 +23,17 @@ const sphereGeometry =  new THREE.SphereBufferGeometry(.5, 64, 64)
 
 // Materials
 const material = new THREE.MeshStandardMaterial()
-material.metalness = 0.7;
-material.roughness = 0.4;
-material.color = new THREE.Color(0x292929)
+material.metalness = 0.4;
+material.roughness = 0.7;
+material.normalMap = earthNormalTexture
+material.color = new THREE.Color(0x046694)
 
 // Mesh
 const sphere = new THREE.Mesh(sphereGeometry, material)
 scene.add(sphere)
 
 // Lights
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
+const pointLight = new THREE.PointLight(0xffffff, 0.8);
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
