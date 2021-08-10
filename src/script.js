@@ -42,8 +42,11 @@ scene.add(pointLight)
 const pointLight2 = new THREE.PointLight(0xff0000, 2);
 // pointLight2.position.set(x, y, z)
 pointLight2.position.set(1, 1, 1)
-pointLight2.intensity = 1
+pointLight2.intensity = 10
 scene.add(pointLight2)
+gui.add(pointLight2.position, 'x').min(-3).max(3).step(0.01)
+gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
 
 /**
  * Sizes
