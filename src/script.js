@@ -1,6 +1,8 @@
 import './style.css'
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import {
+    OrbitControls
+} from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
 // Debug
@@ -13,7 +15,7 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Objects
-const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
+const geometry = new THREE.TorusGeometry(.7, .2, 16, 100);
 
 // Materials
 
@@ -21,7 +23,7 @@ const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0xff0000)
 
 // Mesh
-const sphere = new THREE.Mesh(geometry,material)
+const sphere = new THREE.Mesh(geometry, material)
 scene.add(sphere)
 
 // Lights
@@ -40,8 +42,7 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -84,8 +85,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
+const tick = () => {
 
     const elapsedTime = clock.getElapsedTime()
 
