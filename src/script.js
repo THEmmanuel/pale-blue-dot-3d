@@ -11,6 +11,7 @@ const earthNormalTexture = textureLoader.load('textures/EarthNormalMap.png');
 
 // Debug
 const gui = new dat.GUI()
+// const light1 
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -33,25 +34,41 @@ const sphere = new THREE.Mesh(sphereGeometry, material)
 scene.add(sphere)
 
 // Lights
+// Point Light 1
 const pointLight = new THREE.PointLight(0xffffff, 0.5);
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
 scene.add(pointLight)
 
+//Point Light 2
+const light1 = gui.addFolder('light 1')
 const pointLight2 = new THREE.PointLight(0xff0000, 2);
 // pointLight2.position.set(x, y, z)
-pointLight2.position.set(1, 1, 1)
+pointLight2.position.set(1, 0.5, 3)
 pointLight2.intensity = 10
 scene.add(pointLight2)
-gui.add(pointLight2.position, 'x').min(-3).max(3).step(0.01)
-gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
-gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
-gui.add(pointLight2, 'intensity').min(0).max(10)
+light1.add(pointLight2.position, 'x').min(-3).max(3).step(0.01)
+light1.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+light1.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+light1.add(pointLight2, 'intensity').min(0).max(10)
 
+//Point Light 3
+const light2 = gui.addFolder('light 2')
+const pointLight3 = new THREE.PointLight(0x0074B2, 2);
+pointLight3.position.set(1, 0.5, 3)
+pointLight3.intensity = 10
+scene.add(pointLight3)
+light2.add(pointLight3.position, 'x').min(-3).max(3).step(0.01)
+light2.add(pointLight3.position, 'y').min(-3).max(3).step(0.01)
+light2.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
+light2.add(pointLight3, 'intensity').min(0).max(10)
 
-const pointLightHelper = new THREE.PointLightHelper(pointLight2, 0.5);
+const pointLightHelper = new THREE.PointLightHelper(pointLight2, 0.3);
+const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 0.3);
+
 scene.add(pointLightHelper);
+scene.add(pointLightHelper2);
 /**
  * Sizes
  */
@@ -121,4 +138,4 @@ const tick = () => {
     window.requestAnimationFrame(tick)
 }
 
-tick()
+tick();
