@@ -47,7 +47,11 @@ scene.add(pointLight2)
 gui.add(pointLight2.position, 'x').min(-3).max(3).step(0.01)
 gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
 gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+gui.add(pointLight2, 'intensity').min(0).max(10)
 
+
+const pointLightHelper = new THREE.PointLightHelper(pointLight2, 0.5);
+scene.add(pointLightHelper);
 /**
  * Sizes
  */
