@@ -23,8 +23,8 @@ const sphereGeometry =  new THREE.SphereBufferGeometry(.5, 64, 64)
 
 // Materials
 const material = new THREE.MeshStandardMaterial()
-material.metalness = 0.4;
-material.roughness = 0.7;
+material.metalness = 0.6;
+material.roughness = 0.5;
 material.normalMap = earthNormalTexture
 material.color = new THREE.Color(0x046694)
 
@@ -33,11 +33,17 @@ const sphere = new THREE.Mesh(sphereGeometry, material)
 scene.add(sphere)
 
 // Lights
-const pointLight = new THREE.PointLight(0xffffff, 0.8);
+const pointLight = new THREE.PointLight(0xffffff, 0.5);
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
 scene.add(pointLight)
+
+const pointLight2 = new THREE.PointLight(0xff0000, 2);
+// pointLight2.position.set(x, y, z)
+pointLight2.position.set(1, 1, 1)
+pointLight2.intensity = 1
+scene.add(pointLight2)
 
 /**
  * Sizes
