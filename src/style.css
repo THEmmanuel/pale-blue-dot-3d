@@ -6,7 +6,7 @@
 html,
 body {
     height: 100vh;
-    font-family: 'Poppins';
+    font-family: 'Oswald', sans-serif;
     background: rgb(5, 5, 10);
 }
 
@@ -28,12 +28,12 @@ body {
     place-items: center;
 }
 
-h1{
-    font-size: 7rem; 
+h1 {
+    font-size: 5rem;
     text-transform: uppercase;
     color: white;
 }
 
-section{
+section {
     height: 100vh;
 }
